@@ -30,7 +30,7 @@ export default function Login() {
       <Container fixed>
         <Grid container className={styles.login_card} spacing={0}>
           <Grid item md={6} className={styles.login_card_left}>
-            {/* <Image src="/login_bg.svg" layout="fill" alt="" /> */}
+           
           </Grid>
           <Grid
             item
