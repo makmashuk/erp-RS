@@ -17,12 +17,11 @@
 }
 
 .login_card_left {
-  background: url(../public/login_bg.svg);
-  background-position: left top;
+  background: url(../public/bg.png) no-repeat center center fixed;
   background-size: cover;
-  background-origin: padding-box;
-  background-repeat: no-repeat;
-  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .login_card_right, .login_form {
