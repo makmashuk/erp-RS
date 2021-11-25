@@ -1,0 +1,88 @@
+.login_bg {
+  background: #e7ecf9;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+/* .login_bg_img {
+  
+} */
+
+.login_card {
+  height: 500px;
+  overflow: hidden;
+  box-shadow: 0 0 50px 5px #5b84a766;
+}
+
+.login_card_left {
+  background: url(../public/login_bg.svg);
+  background-position: left top;
+  background-size: cover;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.login_card_right, .login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_field {
+  background: #f7f7f7;
+  outline: none;
+  border: none;
+  border-left: 5px solid #097ff5;
+  padding: 15px 10px;
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+.login_helper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 30px;
+  width: 55%;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.stay_logged_in {
+  position: relative;
+  transition: all ease 0.4s;
+}
+.stay_logged_in:hover {
+  cursor: pointer;
+}
+
+.check_icon, .close_icon {
+  position: absolute;
+  left: -30px;
+  transition: all 0.4s ease;
+  font-size: 1.3rem;
+}
+.check_icon {
+  top: -5px;
+}
+.close_icon {
+  top: -4px;
+}
+
+.forgot_psw {
+  transition: all 0.4s ease;
+}
+.forgot_psw:hover {
+  color: #097ff5;
+}
+
+.login_button {
+  width: 60%;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 3px; 
+}
