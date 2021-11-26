@@ -12,10 +12,15 @@ export default function Login() {
   const [isChecked, setIsChecked] = useState(false);
   const [usrEmail, setUsrEmail] = useState("");
   const [usrPsw, setUsrPsw] = useState("");
+  const [forgotPsw, setForgotPsw] = useState(false);
 
   const toggleCheck = () => {
     setIsChecked(!isChecked);
-    console.log(isChecked);
+  };
+
+  const toggleForgotPsw = () => {
+    setForgotPsw(!forgotPsw);
+    console.log(forgotPsw);
   };
 
   const handleForm = (e) => {
@@ -30,7 +35,16 @@ export default function Login() {
       <Container fixed>
         <Grid container className={styles.login_card} spacing={0}>
           <Grid item md={6} className={styles.login_card_left}>
-           
+            <div className={styles.logo}>
+              <Image
+                src="/Relisource_logo_white-01-1.png"
+                width={128}
+                height={49}
+                alt="Relisource Logo"
+              />
+              <sup className={styles.logo_subtitle}>ERP</sup>
+            </div>
+            <h1 className={styles.greetings}>Welcome</h1>
           </Grid>
           <Grid
             item
@@ -43,7 +57,7 @@ export default function Login() {
               color="#097ff5"
               sx={{ fontFamily: "Rubik", fontWeight: "500", mb: "45px" }}
             >
-              Login Account
+              {forgotPsw ? `Enter Registered Email` : `Login Account`}
             </Typography>
             <form
               onSubmit={handleForm}
@@ -65,11 +79,21 @@ export default function Login() {
                 id="psw"
                 placeholder="Password"
                 className={styles.input_field}
+                style={forgotPsw ? { display: "none" } : { display: "initial" }}
                 value={usrPsw}
                 onChange={(e) => setUsrPsw(e.target.value)}
               />
-              <Box className={styles.login_helper}>
-                <Box>
+              <Box
+                className={styles.login_helper}
+                sx={
+                  forgotPsw
+                    ? { justifyContent: "center" }
+                    : { justifyContent: "space-between" }
+                }
+              >
+                <Box
+                  sx={forgotPsw ? { display: "none" } : { display: "initial" }}
+                >
                   <input
                     type="checkbox"
                     name="stayLoggedIn"
@@ -102,10 +126,14 @@ export default function Login() {
                     </span>
                   </label>
                 </Box>
-                <Box className={styles.forgot_psw}>
-                  <Link href="/">
-                    <a>Forgot Password?</a>
-                  </Link>
+                <Box className={styles.forgot_psw} onClick={toggleForgotPsw}>
+                  {forgotPsw ? (
+                    <Link href="/login">
+                      <a>Back to login</a>
+                    </Link>
+                  ) : (
+                    <span>Fotgot Password?</span>
+                  )}
                 </Box>
               </Box>
               <Button
@@ -113,7 +141,7 @@ export default function Login() {
                 variant="contained"
                 className={styles.login_button}
               >
-                Login
+                {forgotPsw ? `Recover Password` : `Login`}
               </Button>
             </form>
           </Grid>
