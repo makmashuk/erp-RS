@@ -1,19 +1,22 @@
-.login_bg {
+.loginBg {
   background: #e7ecf9;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: max-content;
   width: 100vw;
+  padding: 16px 0;
   display: flex;
   align-items: center;
 }
 
-.login_card {
-  height: 500px;
+.loginCard {
   overflow: hidden;
   box-shadow: 0 0 50px 5px #5b84a766;
   border-radius: 10px;
 }
 
-.login_card_left {
+.loginCardLeft {
+  height: 500px;
+  width: 100%;
   background: url(../public/login-bg.png);
   background-position: center center;
   background-size: cover;
@@ -29,7 +32,7 @@
   left: 30px;
 }
 
-.logo_subtitle {
+.logoSubtitle {
   color: orange;
   font-size: 1.6rem;
   font-style: italic;
@@ -37,19 +40,18 @@
   text-shadow: 0px 1px 2px dimgray;
 }
 
-.greetings {
-  font-weight: 400;
-  color: #f7f7f7;
-}
-
-.login_card_right, .login_form {
+.loginCardRight, .loginForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.input_field {
+.loginCardRight {
+  height: 500px;
+}
+
+.inputField {
   background: #f7f7f7;
   font-size: 16px;
   color: dimgray;
@@ -57,84 +59,43 @@
   border: none;
   border-left: 5px solid #097ff5;
   padding: 15px 10px;
-  width: 60%;
+  width: 65%;
   margin-bottom: 15px;
-  transition: 0.3s ease;
 }
 
-@media screen and (max-width: 575px) {
-  .login_card {
-    flex-direction: column;
-  }
-  .login_card_left {
-    height: 300px;
-    width: 100%;
-  }
-  .input_field {
-    width: 90%;
-  }
-}
-
-.input_field:focus {
+.inputField:focus {
   box-shadow: inset 0.2rem 0.2rem 0.5rem rgb(180, 180, 180), inset -0.2rem -0.2rem 0.5rem lightgray;
   background: #e7ecf9;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
+  border-left-color: #f58220;
 }
 
-.input_field::placeholder {
+.inputField::placeholder {
   font-size: 16px;
   color: #c7c8ca;
 }
 
-.login_helper {
-  display: flex;
-  margin: 10px 0 30px;
-  width: 55%;
+.loginHelper {
+  margin: 0 0 20px;
+  width: 60%;
   font-size: 0.9rem;
   color: #ccc;
 }
 
-.stay_logged_in {
-  position: relative;
-  transition: all ease 0.4s;
-}
-.stay_logged_in:hover {
-  cursor: pointer;
-}
-
-.check_icon, .close_icon {
-  position: absolute;
-  left: -30px;
-  transition: all 0.4s ease;
-  font-size: 1.3rem;
-}
-.check_icon {
-  top: -5px;
-}
-.close_icon {
-  top: -4px;
-}
-
-.forgot_psw {
-  transition: all 0.4s ease;
-}
-.forgot_psw:hover {
+.forgotPsw:hover {
   color: #097ff5;
-  cursor: pointer;
 }
 
-.login_button {
-  width: 60%;
+.loginButton {
+  width: 65%;
   border-radius: 50px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 3px;
-  background-image: linear-gradient(to right, #097ff5 0%, #EC6EAD  60%, #097ff5  100%);
+  background-image: linear-gradient(to right, #097ff5 0%, #EC6EAD  60%, #f58220  100%);
   background-size: 200% auto;
-  transition: 0.5s;
 }
 
-.login_button:hover {
-  background-image: linear-gradient(to right, #097ff5 0%, #EC6EAD  40%, #097ff5  100%);
+.loginButton:hover {
   background-position: right center;
 }
