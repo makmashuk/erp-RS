@@ -24,6 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .logo {
@@ -76,26 +77,37 @@
 }
 
 .loginHelper {
-  margin: 0 0 20px;
   width: 60%;
   font-size: 0.9rem;
+}
+
+.forgotPsw {
+  position: relative;
   color: #ccc;
 }
 
 .forgotPsw:hover {
   color: #097ff5;
+  text-decoration: underline;
 }
 
 .loginButton {
   width: 65%;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   background-image: linear-gradient(to right, #097ff5 0%, #EC6EAD  60%, #f58220  100%);
   background-size: 200% auto;
+  margin: 15px 0;
 }
 
 .loginButton:hover {
   background-position: right center;
+}
+
+@media screen and (max-width: 599px) {
+  .inputField, .loginButton {
+    width: 80%;
+  }
 }
