@@ -1,21 +1,17 @@
 import { Container, Grid, Button, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
 import styles from "../styles/Login.module.css";
-import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import Image from "next/image";
+
 import { useState } from "react";
 
-export default function Login() {
+const ForgotPassword = () => {
   const [usrEmail, setUsrEmail] = useState("");
-  const [usrPsw, setUsrPsw] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(usrEmail + "\n" + usrPsw);
+    console.log(usrEmail);
     setUsrEmail("");
-    setUsrPsw("");
   };
 
   return (
@@ -42,7 +38,7 @@ export default function Login() {
                   fontWeight="400"
                   color="#f7f7f7"
                 >
-                  Hi, Welcome!
+                  Recover Password
                 </Typography>
               </div>
             </Grid>
@@ -51,10 +47,11 @@ export default function Login() {
                 <Typography
                   variant="h5"
                   color="#097ff5"
+                  fontFamily="Rubik"
                   fontWeight="500"
                   mb="45px"
                 >
-                  Login Account
+                  Enter Registered Email
                 </Typography>
 
                 <form
@@ -72,57 +69,31 @@ export default function Login() {
                     value={usrEmail}
                     onChange={(e) => setUsrEmail(e.target.value)}
                   />
-                  <input
-                    type="password"
-                    name="psw"
-                    id="psw"
-                    placeholder="Password"
-                    className={styles.inputField}
-                    value={usrPsw}
-                    onChange={(e) => setUsrPsw(e.target.value)}
-                  />
-                  <div className={styles.loginHelper}>
-                    <Grid container justifyContent="center">
-                      <Grid item>
-                        <Typography
-                          fontSize="0.9rem"
-                          color={isChecked ? `#1976d2` : `#ccc`}
-                          display="flex"
-                          alignItems="start"
-                          sx={{ cursor: "pointer" }}
-                          onClick={() => setIsChecked(!isChecked)}
-                        >
-                          {isChecked ? (
-                            <CheckBoxIcon fontSize="small" sx={{ mr: "5px" }} />
-                          ) : (
-                            <CheckBoxOutlineBlankOutlinedIcon
-                              fontSize="small"
-                              sx={{ mr: "5px" }}
-                            />
-                          )}
-                          Keep me signed in
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
                   <Button
                     type="submit"
                     variant="contained"
                     className={styles.loginButton}
                     onClick={handleForm}
                   >
-                    Login
+                    Recover Password
                   </Button>
-                  <Grid item marginTop="20px">
-                    <Link
-                      href="/forgot-password"
-                      underline="none"
-                      fontSize="0.9rem"
-                      className={styles.forgotPsw}
+                  <div className={styles.loginHelper}>
+                    <Grid
+                      container
+                      alignItems="center"
+                      sx={{ justifyContent: "center" }}
                     >
-                      Forgot Password?
-                    </Link>
-                  </Grid>
+                      <Grid item marginTop="20px">
+                        <Link
+                          href="/login"
+                          underline="none"
+                          className={styles.forgotPsw}
+                        >
+                          Back to login
+                        </Link>
+                      </Grid>
+                    </Grid>
+                  </div>
                 </form>
               </div>
             </Grid>
@@ -131,4 +102,6 @@ export default function Login() {
       </Container>
     </div>
   );
-}
+};
+
+export default ForgotPassword;
