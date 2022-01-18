@@ -65,7 +65,7 @@ const ForgotPassword = () => {
                     name="email"
                     id="email"
                     placeholder="Email ID"
-                    className={styles.inputField}
+                    className="inputField"
                     value={usrEmail}
                     onChange={(e) => setUsrEmail(e.target.value)}
                   />
@@ -86,7 +86,7 @@ const ForgotPassword = () => {
                       <Grid item marginTop="20px">
                         <Link
                           href="/login"
-                          underline="none"
+                          underline="hover"
                           className={styles.forgotPsw}
                         >
                           Back to login
