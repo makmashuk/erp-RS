@@ -17,7 +17,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import KeyboardCommandKeyIcon from "@mui/icons-material/KeyboardCommandKey";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import Link from "next/link";
+import NextLink from "next/link";
+import MuiLink from "@mui/material/Link";
 import { useRouter } from "next/router";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
@@ -25,6 +26,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 import Logout from "@mui/icons-material/Logout";
 import Zoom from "@mui/material/Zoom";
 
@@ -145,9 +147,10 @@ export default function Dashboard({ children }) {
           <Tooltip
             title="Account settings"
             onClick={(e) => setAnchorEl(e.currentTarget)}
+            arrow
           >
             <IconButton size="small" sx={{ ml: 2 }}>
-              <Avatar sx={{ width: 32, height: 32 }} src=""></Avatar>
+              <Avatar sx={{ width: 32, height: 32 }}></Avatar>
             </IconButton>
           </Tooltip>
           <Menu
@@ -187,18 +190,28 @@ export default function Dashboard({ children }) {
             TransitionComponent={Zoom}
           >
             <MenuItem>
-              <Avatar />{" "}
-              <Link href="/dashboard/edit-profile">Edit Profile</Link>
+              <ListItemIcon>
+                <BorderColorIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>
+                <NextLink href="/dashboard/edit-profile">
+                  <MuiLink underline="none" color="GrayText">
+                    Edit Profile
+                  </MuiLink>
+                </NextLink>
+              </ListItemText>
             </MenuItem>
-            <MenuItem>
-              <Avatar /> My account
-            </MenuItem>
-            <Divider />
             <MenuItem>
               <ListItemIcon>
                 <PersonAdd fontSize="small" />
               </ListItemIcon>
-              Add another account
+              <ListItemText>
+                <NextLink href="/dashboard/add-new-account" underline="none">
+                  <MuiLink underline="none" color="GrayText">
+                    Add Account
+                  </MuiLink>
+                </NextLink>
+              </ListItemText>
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
@@ -228,7 +241,7 @@ export default function Dashboard({ children }) {
         <Divider />
         <List>
           {sidebarItems.map((item, index) => (
-            <Link
+            <NextLink
               href={`/dashboard/${item.url}`}
               style={style}
               key={index}
@@ -244,7 +257,7 @@ export default function Dashboard({ children }) {
                 </ListItemIcon>
                 <ListItemText primary={item.name} />
               </ListItem>
-            </Link>
+            </NextLink>
           ))}
         </List>
         <Divider />

@@ -68,7 +68,7 @@ export default function Login() {
                     name="email"
                     id="email"
                     placeholder="Email ID"
-                    className={styles.inputField}
+                    className="inputField"
                     value={usrEmail}
                     onChange={(e) => setUsrEmail(e.target.value)}
                   />
@@ -77,7 +77,7 @@ export default function Login() {
                     name="psw"
                     id="psw"
                     placeholder="Password"
-                    className={styles.inputField}
+                    className="inputField"
                     value={usrPsw}
                     onChange={(e) => setUsrPsw(e.target.value)}
                   />
@@ -116,7 +116,7 @@ export default function Login() {
                   <Grid item marginTop="20px">
                     <Link
                       href="/forgot-password"
-                      underline="none"
+                      underline="hover"
                       fontSize="0.9rem"
                       className={styles.forgotPsw}
                     >
