@@ -17,6 +17,7 @@ import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
 import { Divider } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import InfoIcon from "@mui/icons-material/Info";
 
 const EditProfile = () => {
   const [nameEdit, setNameEdit] = useState(false);
@@ -194,22 +195,23 @@ const EditProfile = () => {
             alignItems="center"
             mt={4}
           >
-            <InfoOutlinedIcon color="gray" fontSize="small" />
+            <InfoIcon color="action" fontSize="small" />
             <Typography
               variant="paragraph"
               component="paragraph"
               textAlign="center"
+              color="textSecondary"
             >
               To save changes, you have to confirm your identity by entring your
-              old password:
+              current password:
             </Typography>
           </Stack>
-          <Grid item xs={12} lg={8}>
+          <Grid item xs={12}>
             <TextField
               type={showPsw ? "text" : "password"}
               id="old-password"
               name="old-password"
-              label="Old Password"
+              label="Current Password"
               helperText=" "
               fullWidth
               InputProps={{
