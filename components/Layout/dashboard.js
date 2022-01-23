@@ -24,9 +24,8 @@ import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
-import BorderColorIcon from "@mui/icons-material/BorderColor";
+import PersonIcon from '@mui/icons-material/Person';
 import Logout from "@mui/icons-material/Logout";
 import Zoom from "@mui/material/Zoom";
 
@@ -191,24 +190,12 @@ export default function Dashboard({ children }) {
           >
             <MenuItem>
               <ListItemIcon>
-                <BorderColorIcon fontSize="small" />
+                <PersonIcon fontSize="small" />
               </ListItemIcon>
               <ListItemText>
-                <NextLink href="/dashboard/edit-profile">
+                <NextLink href="/dashboard/profile">
                   <MuiLink underline="none" color="GrayText">
-                    Edit Profile
-                  </MuiLink>
-                </NextLink>
-              </ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemIcon>
-                <PersonAdd fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>
-                <NextLink href="/dashboard/add-new-account" underline="none">
-                  <MuiLink underline="none" color="GrayText">
-                    Add Account
+                    My Profile
                   </MuiLink>
                 </NextLink>
               </ListItemText>
