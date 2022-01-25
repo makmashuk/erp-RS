@@ -8,6 +8,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+
 import Api from "./../../helper/api";
 
 export default function Admin() {
@@ -23,39 +26,50 @@ export default function Admin() {
   }, []);
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="caption table">
-        <caption>A basic table example with a caption</caption>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Phone</TableCell>
-            <TableCell>Role</TableCell>
-            <TableCell>Permission</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {usrList.map((usr) => (
-            <TableRow key={usr.user_id}>
-              <TableCell component="th" scope="row">
-                {usr.name}
-              </TableCell>
-              <TableCell>{usr.email}</TableCell>
-              <TableCell>
-                {usr.phone.substr(0, 5) + "-" + usr.phone.substr(5)}
-              </TableCell>
-              <TableCell>
-                {usr.role.charAt(0).toUpperCase() + usr.role.substr(1)}
-              </TableCell>
-              {usr.permissions.map((item) => (
-                <TableCell key={item.permission_id}>{item.title}</TableCell>
-              ))}
+    <>
+      <Button
+        variant="outlined"
+        size="large"
+        startIcon={<PersonAddIcon />}
+        sx={{ mb: 3, borderRadius: 5 }}
+        href="/dashboard/add-new-account"
+      >
+        Add Account
+      </Button>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="caption table">
+          <caption>A basic table example with a caption</caption>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Phone</TableCell>
+              <TableCell>Role</TableCell>
+              <TableCell>Permission</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {usrList.map((usr) => (
+              <TableRow key={usr.user_id}>
+                <TableCell component="th" scope="row">
+                  {usr.name}
+                </TableCell>
+                <TableCell>{usr.email}</TableCell>
+                <TableCell>
+                  {usr.phone.substr(0, 5) + "-" + usr.phone.substr(5)}
+                </TableCell>
+                <TableCell>
+                  {usr.role.charAt(0).toUpperCase() + usr.role.substr(1)}
+                </TableCell>
+                {usr.permissions.map((item) => (
+                  <TableCell key={item.permission_id}>{item.title}</TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }
 
