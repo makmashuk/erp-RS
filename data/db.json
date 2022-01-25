@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "email": "arana@relisource.com",
+      "role": "admin",
+      "name": "Abdullah Rana",
+      "phone": "01700763771",
+      "isBlocked": 0,
+      "permissions": [
+        {
+          "permission_id": 1,
+          "title": "create-task1"
+        }
+      ]
+    },
+    {
+      "user_id": 2,
+      "email": "mkhan@relisource.com",
+      "role": "admin",
+      "name": "Mohiuddin Khan",
+      "phone": "01521107920",
+      "isBlocked": 0,
+      "permissions": [
+        {
+          "permission_id": 2,
+          "title": "create-task2"
+        }
+      ]
+    },
+    {
+      "user_id": 3,
+      "email": "msalehin@relisource.com",
+      "role": "Moderator",
+      "name": "Mushfiqus Salehin",
+      "phone": "01711085248",
+      "isBlocked": 0,
+      "permissions": [
+        {
+          "permission_id": 3,
+          "title": "create-task3"
+        }
+      ]
+    },
+    {
+      "user_id": 4,
+      "email": "trahman@relisource.com",
+      "role": "User",
+      "name": "Tanzilur Rahman",
+      "phone": "01715943783",
+      "isBlocked": 0,
+      "permissions": [
+        {
+          "permission_id": 3,
+          "title": "create-task3"
+        }
+      ]
+    },
+    {
+      "user_id": 5,
+      "email": "sshimul@relisource.com",
+      "role": "User",
+      "name": "Shamsur Rahman Shimul",
+      "phone": "01515201078",
+      "isBlocked": 0,
+      "permissions": [
+        {
+          "permission_id": 2,
+          "title": "create-task2"
+        }
+      ]
+    }
+  ]
+}

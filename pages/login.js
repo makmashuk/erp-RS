@@ -4,7 +4,7 @@ import styles from "../styles/Login.module.css";
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Login() {
   const [usrEmail, setUsrEmail] = useState("");
