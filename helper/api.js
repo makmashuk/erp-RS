@@ -4,7 +4,7 @@ export default class Api {
   constructor() {
     this.api_token = null;
     this.client = null;
-    this.api_url = "https://jsonplaceholder.typicode.com";
+    this.api_url = "http://localhost:8000";
   }
 
   init = () => {
