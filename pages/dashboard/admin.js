@@ -10,6 +10,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import NextLink from "next/link";
+import MuiLink from "@mui/material/Link";
+import Switch from "@mui/material/Switch";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 import Api from "./../../helper/api";
 
@@ -38,7 +43,6 @@ export default function Admin() {
       </Button>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="caption table">
-          <caption>A basic table example with a caption</caption>
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
@@ -46,6 +50,8 @@ export default function Admin() {
               <TableCell>Phone</TableCell>
               <TableCell>Role</TableCell>
               <TableCell>Permission</TableCell>
+              <TableCell>Blocked?</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -64,6 +70,14 @@ export default function Admin() {
                 {usr.permissions.map((item) => (
                   <TableCell key={item.permission_id}>{item.title}</TableCell>
                 ))}
+                <TableCell>{(usr.isBlocked && `YES`) || `NO`}</TableCell>
+                <TableCell>
+                  <NextLink href={`/dashboard/edit-profile?q=` + usr.user_id}>
+                    <MuiLink component="button" underline="hover">
+                      Edit
+                    </MuiLink>
+                  </NextLink>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
