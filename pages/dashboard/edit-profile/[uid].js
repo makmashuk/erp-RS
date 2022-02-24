@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import Dashboard from "../../components/Layout/dashboard";
+import { useState, useRef } from "react";
+import Dashboard from "../../../components/Layout/dashboard";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -18,7 +18,42 @@ import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlin
 import { Divider } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
-const EditProfile = () => {
+import Api from "./../../../helper/api";
+
+const api = new Api();
+
+export const getStaticPaths = async () => {
+  const paths = await api
+    .getUserList()
+    .then((response) => {
+      return response.data.map((user) => {
+        return {
+          params: { uid: user.id.toString() },
+        };
+      });
+    })
+    .catch((err) => console.log(err));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async (context) => {
+  const usrId = context.params.uid;
+  const res = await api
+    .getUserList({ id: usrId })
+    .then((response) => response.data);
+
+  return {
+    props: {
+      usrData: res,
+    },
+  };
+};
+
+const EditProfile = ({ usrData }) => {
   const [nameEdit, setNameEdit] = useState(false);
   const [showPsw, setShowPsw] = useState(false);
   const [mobileEdit, setMobileEdit] = useState(false);
@@ -66,7 +101,7 @@ const EditProfile = () => {
         <Grid container columnSpacing={3}>
           <Grid item xs={12} lg={6}>
             <TextField
-              defaultValue="User's Name"
+              defaultValue={usrData[0].name}
               id="fullname"
               name="fullname"
               label="Fullname"
@@ -105,7 +140,9 @@ const EditProfile = () => {
           </Grid>
           <Grid item xs={12} lg={6}>
             <TextField
-              defaultValue="User's Mobile Number"
+              defaultValue={
+                usrData[0].phone.substr(0, 5) + "-" + usrData[0].phone.substr(5)
+              }
               id="mobile"
               name="mobile"
               label="Mobile Number"

@@ -1,6 +1,5 @@
 import Dashboard from "../../components/Layout/dashboard";
 
-import { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,24 +11,24 @@ import Button from "@mui/material/Button";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
-import Switch from "@mui/material/Switch";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
 
 import Api from "./../../helper/api";
 
-export default function Admin() {
-  const [usrList, setUsrList] = useState([]);
-  useEffect(() => {
-    const api = new Api();
-    api
-      .getUserList()
-      .then((response) => {
-        setUsrList(response.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+export const getStaticProps = async () => {
+  const api = new Api();
+  const data = await api
+    .getUserList()
+    .then((response) => response.data)
+    .catch((err) => console.log(err));
 
+  return {
+    props: {
+      users: data,
+    },
+  };
+};
+
+export default function Admin({ users }) {
   return (
     <>
       <Button
@@ -55,24 +54,24 @@ export default function Admin() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {usrList.map((usr) => (
-              <TableRow key={usr.user_id}>
+            {users.map((user) => (
+              <TableRow key={user.id}>
                 <TableCell component="th" scope="row">
-                  {usr.name}
+                  {user.name}
                 </TableCell>
-                <TableCell>{usr.email}</TableCell>
+                <TableCell>{user.email}</TableCell>
                 <TableCell>
-                  {usr.phone.substr(0, 5) + "-" + usr.phone.substr(5)}
+                  {user.phone.substr(0, 5) + "-" + user.phone.substr(5)}
                 </TableCell>
                 <TableCell>
-                  {usr.role.charAt(0).toUpperCase() + usr.role.substr(1)}
+                  {user.role.charAt(0).toUpperCase() + user.role.substr(1)}
                 </TableCell>
-                {usr.permissions.map((item) => (
+                {user.permissions.map((item) => (
                   <TableCell key={item.permission_id}>{item.title}</TableCell>
                 ))}
-                <TableCell>{(usr.isBlocked && `YES`) || `NO`}</TableCell>
+                <TableCell>{(user.isBlocked && `YES`) || `NO`}</TableCell>
                 <TableCell>
-                  <NextLink href={`/dashboard/edit-profile?q=` + usr.user_id}>
+                  <NextLink href={`/dashboard/edit-profile/${user.id}`}>
                     <MuiLink component="button" underline="hover">
                       Edit
                     </MuiLink>

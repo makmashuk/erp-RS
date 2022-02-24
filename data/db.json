@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "user_id": 1,
+      "id": 1,
       "email": "arana@relisource.com",
       "role": "admin",
       "name": "Abdullah Rana",
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "user_id": 2,
+      "id": 2,
       "email": "mkhan@relisource.com",
       "role": "admin",
       "name": "Mohiuddin Khan",
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "user_id": 3,
+      "id": 3,
       "email": "msalehin@relisource.com",
       "role": "Moderator",
       "name": "Mushfiqus Salehin",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "user_id": 4,
+      "id": 4,
       "email": "trahman@relisource.com",
       "role": "User",
       "name": "Tanzilur Rahman",
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "user_id": 5,
+      "id": 5,
       "email": "sshimul@relisource.com",
       "role": "User",
       "name": "Shamsur Rahman Shimul",
